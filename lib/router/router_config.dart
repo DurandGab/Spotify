@@ -71,8 +71,7 @@
                         if (id != null) {
                           return ArtisteDetailScreen(artistId: id);
                         } else {
-                          // Gérez le cas où id est null
-                          return Container(); // ou tout autre widget que vous voulez afficher
+                          return Container();
                         }
                       },
                     ),
@@ -83,8 +82,7 @@
                         if (id != null) {
                           return ChansonDetailScreen(chansonId: id);
                         } else {
-                          // Gérez le cas où id est null
-                          return Container(); // ou tout autre widget que vous voulez afficher
+                          return Container();
                         }
                       },
                     ),

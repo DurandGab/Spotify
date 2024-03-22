@@ -21,7 +21,7 @@ class Chanson {
     previewUrl = json['preview_url'];
     imageUrl = (json['images'] as List<dynamic>?)
         ?.map((image) => image['url'] as String)
-        .first; // Prend la première image
+        .first;
   }
 
   Map<String, dynamic> toJson() {
@@ -35,7 +35,6 @@ class Chanson {
     data['id'] = id;
     data['name'] = name;
     data['preview_url'] = this.previewUrl;
-    // L'image n'est pas incluse car elle ne devrait pas être sérialisée
     return data;
   }
 }

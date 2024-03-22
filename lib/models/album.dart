@@ -6,7 +6,7 @@ class Album {
   String? name;
   String? imageUrl;
   List<Artiste>? artiste;
-  List<Chanson>? chansons; // Modifier le type ici
+  List<Chanson>? chansons;
 
   Album({this.id, this.name, this.imageUrl, this.artiste, this.chansons});
 
@@ -23,7 +23,7 @@ class Album {
       });
     }
     if (json['tracks'] != null && json['tracks']['items'] != null) {
-      chansons = <Chanson>[]; // Initialiser la liste de chansons
+      chansons = <Chanson>[];
       json['tracks']['items'].forEach((track) {
         chansons!.add(Chanson.fromJson(track));
       });

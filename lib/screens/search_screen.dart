@@ -46,10 +46,8 @@ class _SearchScreenState extends State<SearchScreen> {
 }
 
   void _search() async {
-    // Vérifier que la requête de recherche n'est pas vide
     if (_searchQuery.isNotEmpty) {
       try {
-        // Récupérer les résultats de la recherche en fonction du type sélectionné
         switch (_selectedType) {
           case 'album':
             _searchResults = await AlbumProvider().searchAlbums(_searchQuery);
@@ -63,10 +61,8 @@ class _SearchScreenState extends State<SearchScreen> {
           default:
             throw Exception('Invalid search type');
         }
-        // Mettre à jour l'état pour reconstruire l'interface utilisateur avec les nouveaux résultats
         setState(() {});
       } catch (e) {
-        // Gérer les erreurs de recherche
         print('Error searching: $e');
       }
     }
@@ -143,11 +139,11 @@ class _SearchScreenState extends State<SearchScreen> {
                       String? imageUrl;
                       String? artistName;
 
-                      // Déterminer le type de résultat et extraire l'URL de l'image et le nom de l'artiste en conséquence
+                     
                       if (result is Album) {
                         imageUrl = result.imageUrl;
                         if (result.artiste != null && result.artiste!.isNotEmpty) {
-                          // Supposons qu'un album peut avoir plusieurs artistes, nous prenons le premier artiste ici
+                          
                           artistName = result.artiste![0].name;
                         }
                       } else if (result is Artiste) {
@@ -156,7 +152,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       } else if (result is Chanson) {
                         imageUrl = result.album?.imageUrl ?? '';
                         if (result.artists != null && result.artists!.isNotEmpty) {
-                          // Supposons qu'une chanson peut avoir plusieurs artistes, nous prenons le premier artiste ici
+                          
                           artistName = result.artists![0].name;
                         }
                       }
@@ -180,9 +176,9 @@ class _SearchScreenState extends State<SearchScreen> {
                           onPressed: () {
                             _playChanson(result.id!);
                           },
-                        ) : null, // Ajoutez cette condition pour afficher le bouton play uniquement pour les chansons
+                        ) : null,
                         onTap: () {
-                          // Action différente en fonction du type de résultat
+                        
                           if (result is Album) {
                             context.go('/a/albumdetails/${result.id}');
                           } else if (result is Artiste) {

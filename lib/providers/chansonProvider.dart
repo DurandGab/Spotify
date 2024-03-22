@@ -10,7 +10,7 @@ class ChansonProvider {
   
 Future<List<Chanson>> fetchTopTracks(String artistId) async {
   final response = await http.get(
-    Uri.parse('$_baseUrl/artists/$artistId/top-tracks?market=FR'), // Vous pouvez ajuster le marché selon vos besoins
+    Uri.parse('$_baseUrl/artists/$artistId/top-tracks?market=FR'),
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',

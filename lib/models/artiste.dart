@@ -10,14 +10,13 @@ class Artiste {
     name = json['name'];
     imageUrl = (json['images'] as List<dynamic>?)
         ?.map((image) => image['url'] as String)
-        ?.first; // Prend la première image
+        ?.first;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
     data['id'] = id;
     data['name'] = name;
-    // L'image n'est pas incluse car elle ne devrait pas être sérialisée
     return data;
   }
 }

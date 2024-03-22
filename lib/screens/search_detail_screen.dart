@@ -39,7 +39,6 @@ class SearchDetailsScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 16),
-                  // Afficher d'autres détails de l'album ici si nécessaire
                 ],
               ),
             );
